@@ -8,6 +8,7 @@ from tvsummary.aggregations import (
     ShowsPerDecade,
     ShowsPerGenre,
 )
+from tvsummary.config import API_URL
 
 
 def most_common_genre(genre_counts):
@@ -36,7 +37,7 @@ def build_summary(records):
     genre_counts = results["shows_per_genre"]
 
     return {
-        "source_url": "https://api.tvmaze.com/shows?page=0",
+        "source_url": API_URL,
         "records_processed": len(records),
         "shows_per_genre": genre_counts,
         "distinct_genres": sorted(genre_counts),
